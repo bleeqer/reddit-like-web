@@ -5,8 +5,8 @@
 }
 
 .main-content {
-  margin-left: 250px; /* Adjust this value based on the width of your LNB */
-  margin-right: 250px; /* Adjust this value based on the width of your RNB */
+  margin-left: 291px; /* Adjust this value based on the width of your LNB */
+  margin-right: 291px; /* Adjust this value based on the width of your RNB */
   padding: 20px;
   flex-grow: 1;
   overflow: hidden; /* Prevent overflow */

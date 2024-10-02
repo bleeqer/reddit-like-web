@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Community.css';
 import Card from '../../components/Card/Card';
 import CommunityInformation from '../../components/CommunityInformation/CommunityInformation';
+import CreatePost from '../../components/Post/CreatePost';
 
 function Community() {
+  const [showCreatePost, setShowCreatePost] = useState(false);
+
   const cardsData = [
     {
       title: 'What does this mean??',
@@ -27,26 +30,39 @@ function Community() {
     },
   ];
 
+  const handleCreatePostClick = () => {
+    setShowCreatePost(!showCreatePost);
+  };
+
   return (
     <div className="community">
-        <div className="community-main-header">
-          <div className="community-main-header-image">
-            <img src="https://via.placeholder.com/150" alt="Community" />
+      <div className="community-main-header">
+        <div className="community-main-header-image">
+          <img src="https://via.placeholder.com/150" alt="Community" />
+        </div>
+        <div className="community-main-header-content">
+          <h1>r/Anime</h1>
+          <p>Reddit's premier anime community.</p>
+          <div className="community-main-header-buttons">
+            <button className="create-post" onClick={handleCreatePostClick}>
+              {showCreatePost ? 'Cancel' : 'Create Post'}
+            </button>
+            <button className="join-community">Join</button>
           </div>
-          <div className="community-main-header-content">
-            <h1>r/Anime</h1>
-            <p>Reddit's premier anime community.</p>
-            <div className="community-main-header-buttons">
-                <button className="create-post">Create Post</button>
-                <button className="join-community">Join</button>
-            </div>
-          </div>
+        </div>
       </div>
       <div className="community-main-content">
-        {cardsData.map((card, index) => (
-          <Card key={index} {...card} />
-      ))}
-      <CommunityInformation />
+        {showCreatePost ? (
+          <CreatePost />
+        ) : (
+          <>
+            {cardsData.map((card, index) => (
+              <Card key={index} {...card} />
+            ))}
+          </>
+        )}
+            <CommunityInformation />
+
       </div>
     </div>
   );

@@ -2,16 +2,20 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
+import LNB from './components/LNB/LNB';
 
 function App() {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} /> */}
-      </Routes>
+      <div className="app-container">
+        <LNB /> 
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 }

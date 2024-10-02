@@ -23,7 +23,7 @@ body {
   padding: 10px 20px;
   background-color: var(--background-color-dark);
   color: var(--color-black);
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #343536;
 }
 
 .header.dark {

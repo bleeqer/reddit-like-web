@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import Card from '../../components/Card/Card';
+import PopularCommunities from '../../components/PopularCommunities/PopularCommunities';
 
 function Home() {
   const cardsData = [
@@ -31,7 +32,9 @@ function Home() {
       {cardsData.map((card, index) => (
         <Card key={index} {...card} />
       ))}
+        <PopularCommunities />
     </div>
+
   );
 }
 

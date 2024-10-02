@@ -1,0 +1,66 @@
+.community-main-header {
+    position: fixed;
+    top: 60px;
+    left: 291px;
+    width: calc(100% - 582px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 90px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--background-color-dark);
+}
+
+.community-main-header-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.community-main-header-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.community-main-header-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+}
+
+.community-main-content {
+    margin-top: 90px;
+}
+
+.community-main-header-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.community-main-header-buttons button {
+    background-color: var(--background-color-darker);
+    color: var(--color-white);
+    border: 0.5px solid var(--color-white);
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.community-main-header-buttons button:hover {
+    background-color: var(--color-white);
+    color: var(--background-color-darker);
+}
+
+.community-main-header-buttons .join-community {
+    background-color: #294A85;
+    border: none;
+}

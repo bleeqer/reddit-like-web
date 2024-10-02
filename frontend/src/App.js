@@ -4,6 +4,7 @@ import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
 import LNB from './components/LNB/LNB';
 import PopularCommunities from './components/PopularCommunities/PopularCommunities';
+import Community from './pages/Community/Community';
 import './App.css'; // Import the updated App.css
 import './assets/styles/global.css';
 
@@ -16,9 +17,9 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/community/:name" element={<Community />} />
           </Routes>
         </main>
-        <PopularCommunities />
       </div>
     </Router>
   );

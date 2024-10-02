@@ -4,6 +4,8 @@ import { faComment, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-i
 import './Card.css';
 
 function Card({ title, content, imageUrl, author, timeAgo, comments, upvotes, downvotes }) {
+  console.log({ title, content, imageUrl, author, timeAgo, comments, upvotes, downvotes }); // Debugging statement
+
   return (
     <div className="card">
       <div className="card-header">

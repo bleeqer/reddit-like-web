@@ -14,10 +14,10 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  padding-right: 40px; /* Add padding to the right */
+  padding-right: 40px;
   z-index: 1000;
   color: var(--color-black);
-  border-bottom: 1px solid #343536;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .header.dark {

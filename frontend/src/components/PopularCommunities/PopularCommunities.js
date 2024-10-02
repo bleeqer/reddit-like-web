@@ -4,18 +4,18 @@ import { faGamepad, faTv, faDiceD20 } from '@fortawesome/free-solid-svg-icons';
 import './PopularCommunities.css';
 
 const popularCommunitiesData = [
-  { name: 'r/DestinyTheGame', members: '3,206,952', icon: faGamepad },
-  { name: 'r/anime', members: '11,286,076', icon: faTv },
-  { name: 'r/destiny2', members: '912,033', icon: faGamepad },
-  { name: 'r/dndnext', members: '783,125', icon: faDiceD20 },
-  { name: 'r/DestinyTheGame', members: '3,206,952', icon: faGamepad },
-  { name: 'r/anime', members: '11,286,076', icon: faTv },
-  { name: 'r/destiny2', members: '912,033', icon: faGamepad },
-  { name: 'r/dndnext', members: '783,125', icon: faDiceD20 },
-  { name: 'r/DestinyTheGame', members: '3,206,952', icon: faGamepad },
-  { name: 'r/anime', members: '11,286,076', icon: faTv },
-  { name: 'r/destiny2', members: '912,033', icon: faGamepad },
-  { name: 'r/dndnext', members: '783,125', icon: faDiceD20 },
+  { name: 'DestinyTheGame', members: '3,206,952', icon: faGamepad },
+  { name: 'anime', members: '11,286,076', icon: faTv },
+  { name: 'destiny2', members: '912,033', icon: faGamepad },
+  { name: 'dndnext', members: '783,125', icon: faDiceD20 },
+  { name: 'DestinyTheGame', members: '3,206,952', icon: faGamepad },
+  { name: 'anime', members: '11,286,076', icon: faTv },
+  { name: 'destiny2', members: '912,033', icon: faGamepad },
+  { name: 'dndnext', members: '783,125', icon: faDiceD20 },
+  { name: 'DestinyTheGame', members: '3,206,952', icon: faGamepad },
+  { name: 'anime', members: '11,286,076', icon: faTv },
+  { name: 'destiny2', members: '912,033', icon: faGamepad },
+  { name: 'dndnext', members: '783,125', icon: faDiceD20 },
 ];
 
 function PopularCommunities() {
@@ -34,7 +34,7 @@ function PopularCommunities() {
         <ul>
           {communitiesToShow.map((community, index) => (
             <li key={index}>
-              <a href={`/${community.name}`} className="community-link">
+              <a href={`/community/${community.name}`} className="community-link">
                 <div className="community-icon-container">
                   <FontAwesomeIcon icon={community.icon} className="community-icon" />
                 </div>

@@ -3,63 +3,83 @@ import './Post.css';
 
 function CreatePost() {
   const [title, setTitle] = useState('');
-  const [media, setMedia] = useState(null);
-  const [postType, setPostType] = useState('text'); // State to manage post type
+  const [content, setContent] = useState('');
+  const [community, setCommunity] = useState('');
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleMediaChange = (e) => {
-    setMedia(e.target.files[0]);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission based on post type
-    if (postType === 'text') {
-      console.log('Submitting text post:', title);
-    } else {
-      console.log('Submitting media post:', media);
+    const postData = {
+      title,
+      content,
+      community,
+    };
+
+    const response = await fetch(`http://localhost:3000/api/communities/${community}`);
+    const communityData = await response.json();
+    if (!communityData) {
+        // highlight the input field
+        setCommunity(community);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://your-server-url.com/api/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+      });
+
+      if (response.ok) {
+        console.log('Post created successfully');
+        // Reset form fields
+        setTitle('');
+        setContent('');
+        setCommunity('');
+      } else {
+        console.error('Failed to create post');
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
   };
 
   return (
     <div className="create-post">
-      <h2>Create post</h2>
+      <h2>Create a Post</h2>
       <form onSubmit={handleSubmit}>
         <div className="create-post-body">
-          <div className="post-type-selector">
-            <button type="button" onClick={() => setPostType('text')}>Text</button>
-            <button type="button" onClick={() => setPostType('media')}>Images & Video</button>
-          </div>
-          <input
-            type="text"
-            placeholder="Title"
-            value={title}
-            onChange={handleTitleChange}
-            required
-          />
-          {postType === 'text' ? (
-            <textarea
-              placeholder="Write your post here..."
-              rows="5"
+          <label>
+            Title
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required
             />
-          ) : (
-            <div className="media-upload">
-              <label htmlFor="media-upload">Drag and Drop or upload media</label>
-              <input
-                type="file"
-                id="media-upload"
-                onChange={handleMediaChange}
-              />
-            </div>
-          )}
+          </label>
+          <label>
+            Content
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Community
+            <input
+              type="text"
+              value={community}
+              onChange={(e) => setCommunity(e.target.value)}
+              placeholder="Search for a community"
+              required
+            />
+          </label>
         </div>
-        <div className="create-post-footer">
-          <button type="button">Save Draft</button>
-          <button type="submit">Post</button>
+        <div className="modal-footer">
+          <button type="submit">Create Post</button>
         </div>
       </form>
     </div>

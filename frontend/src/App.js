@@ -20,6 +20,7 @@ function App() {
             <Route path="/community/:name" element={<Community />} />
           </Routes>
         </main>
+        <div id="modal-root"></div>
       </div>
     </Router>
   );

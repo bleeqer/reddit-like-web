@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faFire, faSmile, faGamepad, faQuestionCircle, faMicrochip, faStar, faChevronDown, faChevronUp, faAtom, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faFire, faSmile, faGamepad, faQuestionCircle, faMicrochip, faStar, faChevronDown, faChevronUp, faAtom, faGlobe, faPlus } from '@fortawesome/free-solid-svg-icons';
 import './LNB.css';
+import CreateCommunity from '../Community/CreateCommunity';
 
 function LNB() {
     const [selectedIcon, setSelectedIcon] = useState(null);
-    const [isTopicsVisible, setIsTopicsVisible] = useState(true);
+    const [isCommunitiesVisible, setIsCommunitiesVisible] = useState(true);
+    const [isCreateCommunityOpen, setIsCreateCommunityOpen] = useState(false);
 
     const handleIconClick = (icon) => {
         setSelectedIcon(icon);
     };
 
-    const toggleTopicsVisibility = () => {
-        setIsTopicsVisible(!isTopicsVisible);
+    const toggleCommunitiesVisibility = () => {
+        setIsCommunitiesVisible(!isCommunitiesVisible);
+    };
+
+    const openCreateCommunityModal = () => {
+        setIsCreateCommunityOpen(true);
+    };
+
+    const closeCreateCommunityModal = () => {
+        setIsCreateCommunityOpen(false);
     };
 
     return (
@@ -36,15 +46,18 @@ function LNB() {
                 </li>
             </ul>
             <div className="lnb-section">
-                <div className="lnb-dropdown-button" onClick={toggleTopicsVisibility}>
+                <div className="lnb-dropdown-button" onClick={toggleCommunitiesVisibility}>
                     <div className="lnb-dropdown-button-text">
-                        Topics
+                        Communities
                     </div>
                     <div className="lnb-dropdown-button-icon">
-                        <FontAwesomeIcon icon={isTopicsVisible ? faChevronUp : faChevronDown} />
+                        <FontAwesomeIcon icon={isCommunitiesVisible ? faChevronUp : faChevronDown} />
                     </div>
                 </div>
-                <ul className={`topics-list ${isTopicsVisible ? 'visible' : ''}`}>
+                <button className="create-community-button" onClick={openCreateCommunityModal}>
+                <FontAwesomeIcon icon={faPlus} /> Create Community
+            </button>
+                <ul className={`communities-list ${isCommunitiesVisible ? 'visible' : ''}`}>
                     <li><a href="/internet-culture"><FontAwesomeIcon icon={faSmile} /> Internet Culture (Viral)</a></li>
                     <li><a href="/games"><FontAwesomeIcon icon={faGamepad} /> Games</a></li>
                     <li><a href="/qandas"><FontAwesomeIcon icon={faQuestionCircle} /> Q&As</a></li>
@@ -57,6 +70,7 @@ function LNB() {
             <div className="lnb-footer">
                 <p>Reddit, Inc. © 2024. All rights reserved.</p>
             </div>
+            <CreateCommunity isOpen={isCreateCommunityOpen} onClose={closeCreateCommunityModal} />
         </nav>
     );
 }

@@ -87,7 +87,7 @@ body {
   border: none;
   border-radius: 18px;
   font-weight: bold; /* Make the text bold */
-  margin-right: 10px; /* Add margin to the right of the login button */
+  margin-right: 30px; /* Add margin to the right of the login button */
 }
 
 .login-button:hover {

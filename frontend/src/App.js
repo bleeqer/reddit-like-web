@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import LNB from './components/LNB/LNB';
 import PopularCommunities from './components/PopularCommunities/PopularCommunities';
 import './App.css'; // Import the updated App.css
+import './assets/styles/global.css';
 
 function App() {
   return (

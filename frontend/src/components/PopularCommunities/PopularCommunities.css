@@ -7,8 +7,19 @@
   top: 60px;
   right: 0;
   height: calc(100% - 60px);
-  overflow-y: auto;
+  overflow-y: scroll; /* Ensure content is scrollable */
   border-left: 1px solid #343536;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.popular-communities::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.popular-communities {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .popular-communities-container {
@@ -17,6 +28,13 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.popular-communities-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .popular-communities h3 {
@@ -32,7 +50,14 @@
 .popular-communities li {
   display: flex;
   align-items: center;
+  padding: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popular-communities li:hover {
+  background-color: var(--button-hover);
 }
 
 .popular-communities a {
@@ -57,29 +82,28 @@ text-decoration: none;
 }
 
 .popular-communities .see-more-container {
+    border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 30px;
-  width: 60px;
+  width: 80px;
 }
 
-.popular-communities .see-more {
-  padding: 0 10px;
-  border-radius: 15px;
-  height: 30px;
-  width: 60px;
-  display: block;
-  margin-top: 20px;
-  text-align: center;
-  font-size: 14px;
-  line-height: 30px;
-}
-
-.popular-communities .see-more:hover {
-    background-color: var(--button-hover);
+.see-more {
+background-color: transparent;
   color: var(--color-white);
+  border: none;
+  line-height: 30px;
+  border-radius: 15px;
+  font-size: 12px;
+  cursor: pointer;
 }
+
+.see-more:hover {
+  background-color: var(--button-hover);
+}
+
 
 .community-icon-container {
   margin-right: 10px;

@@ -1,8 +1,17 @@
 :root {
-  --background-color-dark: #0F1113;
-  --background-color-darker: #1a1a1a;
-  --border-color: #343536;
-  --color-white: #ffffff;
-  --color-text: #d7dadc;
-  --color-link: #0079d3;
-}
+    --background-color-dark: #0F1113;
+    --background-color-darker: #1a1a1a;
+    --background-color-input: #272729;
+    --border-color: #343536;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-orange: #ff4500;
+    --color-orange-dark: #e03e00;
+    --color-link: #0079d3;
+    --color-text: #d7dadc;
+    --button-hover: #2A3236;
+  }
+
+  body {
+    overflow-x: hidden;
+  }

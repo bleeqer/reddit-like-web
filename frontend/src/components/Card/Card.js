@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComment, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import './Card.css';
 
 function Card({ title, content, imageUrl, author, timeAgo, comments, upvotes, downvotes }) {
@@ -15,9 +17,15 @@ function Card({ title, content, imageUrl, author, timeAgo, comments, upvotes, do
         <div className="card-author">{author}</div>
         <div className="card-time">{timeAgo}</div>
         <div className="card-stats">
-          <span className="card-comments">{comments} comments</span>
-          <span className="card-upvotes">{upvotes} upvotes</span>
-          <span className="card-downvotes">{downvotes} downvotes</span>
+          <span className="card-comments">
+            <FontAwesomeIcon icon={faComment} /> {comments} comments
+          </span>
+          <span className="card-upvotes">
+            <FontAwesomeIcon icon={faArrowUp} /> {upvotes} upvotes
+          </span>
+          <span className="card-downvotes">
+            <FontAwesomeIcon icon={faArrowDown} /> {downvotes} downvotes
+          </span>
         </div>
       </div>
     </div>

@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.app-container {
+  display: flex;
+  margin-top: 60px; /* Adjust this value based on the height of your header */
+}
+
+.main-content {
+  margin-left: 250px; /* Adjust this value based on the width of your LNB */
+  padding: 20px;
+  flex-grow: 1;
+}

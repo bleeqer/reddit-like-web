@@ -1,0 +1,68 @@
+.card {
+  background-color: var(--background-color-darker);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 10px;
+  color: var(--color-white);
+}
+
+.card-content {
+  font-size: 14px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--background-color-dark);
+  border-top: 1px solid var(--border-color);
+}
+
+.card-author,
+.card-time,
+.card-stats {
+  font-size: 12px;
+  color: var(--color-text);
+}
+
+.card-stats {
+  display: flex;
+  gap: 10px;
+}
+
+.card-comments,
+.card-upvotes,
+.card-downvotes {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

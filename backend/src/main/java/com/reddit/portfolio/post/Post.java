@@ -34,8 +34,8 @@ public class Post {
     @Column(nullable = false, length = 100)
     private String community;
 
-    @Column(nullable = false, length = 100)
-    private String username;
+    @Column(nullable = false)
+    private Long userId;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

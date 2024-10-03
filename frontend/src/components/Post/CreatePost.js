@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Post.css';
+import BASE_URL from '../../config'; // Import the base URL
 
 function CreatePost() {
   const [title, setTitle] = useState('');
@@ -14,16 +15,16 @@ function CreatePost() {
       community,
     };
 
-    const response = await fetch(`http://localhost:3000/api/communities/${community}`);
-    const communityData = await response.json();
-    if (!communityData) {
-        // highlight the input field
-        setCommunity(community);
-      return;
-    }
+    // const response = await fetch(`${BASE_URL}/communities/${community}`);
+    // const communityData = await response.json();
+    // if (!communityData) {
+    //     // highlight the input field
+    //     setCommunity(community);
+    //   return;
+    // }
 
     try {
-      const response = await fetch('https://your-server-url.com/api/posts', {
+      const response = await fetch(`${BASE_URL}/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

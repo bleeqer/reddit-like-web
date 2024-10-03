@@ -18,16 +18,8 @@ public class VoteController {
     @Autowired
     private VoteService voteService;
 
-    @PostMapping
-    public Vote createVote(@RequestBody Vote vote) {
-        return voteService.createVote(vote);
-    }
-
-    @DeleteMapping("/{postId}")
-    public void deleteVote(@PathVariable Long postId) {
-        Vote vote = new Vote();
-        vote.setPostId(postId);
-        vote.setUsername("test");
-        voteService.deleteVote(vote);
+    @PostMapping("/{postId}")
+    public Vote vote(@PathVariable Long postId, @RequestBody Vote vote) {
+        return voteService.vote(postId, vote);
     }
 }

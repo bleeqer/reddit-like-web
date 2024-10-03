@@ -27,8 +27,8 @@ public class Vote {
     @Column(name = "post_id")
     private Long postId;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "user_id")
+    private Long userId;
 
     @Column(name = "vote_type")
     private Character voteType;

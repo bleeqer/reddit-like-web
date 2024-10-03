@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import './Card.css';
+import BASE_URL from '../../config';
 
-function Card({ title, content, imageUrl, author, timeAgo, comments, upvotes, downvotes }) {
-  console.log({ title, content, imageUrl, author, timeAgo, comments, upvotes, downvotes }); // Debugging statement
+function Card({ id, title, content, imageUrl, author, timeAgo, comments, upvotes: initialUpvotes, downvotes: initialDownvotes }) {
+  console.log(id);
+  const [upvotes, setUpvotes] = useState(initialUpvotes);
+  const [downvotes, setDownvotes] = useState(initialDownvotes);
+
+  const handleVote = async (voteType) => {
+    try {
+      const response = await fetch(`${BASE_URL}/vote/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ voteType }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit vote');
+      }
+
+      const updatedPost = await response.json();
+      setUpvotes(updatedPost.upvotes);
+      setDownvotes(updatedPost.downvotes);
+    } catch (error) {
+      console.error('Error submitting vote:', error);
+    }
+  };
+
+  const handleUpvote = () => handleVote('U');
+  const handleDownvote = () => handleVote('D');
+
 
   return (
     <div className="card">
@@ -22,10 +51,10 @@ function Card({ title, content, imageUrl, author, timeAgo, comments, upvotes, do
           <span className="card-comments">
             <FontAwesomeIcon icon={faComment} /> {comments} comments
           </span>
-          <span className="card-upvotes">
+          <span className="card-upvotes" onClick={handleUpvote}>
             <FontAwesomeIcon icon={faArrowUp} /> {upvotes} upvotes
           </span>
-          <span className="card-downvotes">
+          <span className="card-downvotes" onClick={handleDownvote}>
             <FontAwesomeIcon icon={faArrowDown} /> {downvotes} downvotes
           </span>
         </div>

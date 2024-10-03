@@ -9,11 +9,22 @@ public class VoteService {
     @Autowired
     private VoteRepository voteRepository;
 
-    public Vote createVote(Vote vote) {
-        return voteRepository.save(vote);
-    }
+    public Vote vote(Long postId, Vote vote) {
+        vote.setPostId(postId);
 
-    public void deleteVote(Vote vote) {
-        voteRepository.delete(vote);
+        Vote existingVote = voteRepository.findByPostIdAndUserId(postId, vote.getUserId());
+
+        if (existingVote != null) {
+            if (existingVote.getVoteType() == vote.getVoteType()) {
+                voteRepository.delete(existingVote);
+            } else {
+                existingVote.setVoteType(vote.getVoteType());
+                voteRepository.save(existingVote);
+            }
+        } else {
+            voteRepository.save(vote);
+        }
+
+        return vote;
     }
 }

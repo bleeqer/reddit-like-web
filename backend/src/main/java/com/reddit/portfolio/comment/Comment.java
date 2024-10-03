@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import com.reddit.portfolio.post.Post;
 @Entity
 @Table(name = "comments")
 @Data
@@ -25,12 +25,11 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false)
-    private Long postId;
+    private Post post;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private Long userId;
-
+    private User user;
     @Column(nullable = false, length = 1000)
     private String content;
 
